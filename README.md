@@ -1,3 +1,20 @@
+How to configure for SubBoard
+================
+
+1. Make sure that the I2C interface is enabled and the __/dev/i2c-1__ device is present
+2. sudo apt-get install autoconf automake libtool git
+3. git clone this repo
+4. cd linux_libnfc-nci
+5. ./bootstrap
+6. ./configure --enable-alt
+7. In configuration file "linux_libnfc-nci\conf\libnfc-nxp-init.conf" change the parameter to NXP_NFC_DEV_NODE="/dev/i2c-1"
+8. In header "linux_libnfc-nci\src\halimpl\pn54x\tml\i2c\phTmlNfc_alt.h" change GPIO pins in actual: "#define PIN_INT 4" and "#define PIN_ENABLE 5" in "#if (CONFIGURATION == 1)" block
+9. make
+10. sudo make install
+11. export LD_LIBRARY_PATH=/usr/local/lib
+12. Check that everything works well by running in tag reader mode "nfcDemoApp poll"
+
+
 linux_libnfc-nci
 ================
 Linux NFC stack for NCI based NXP NFC Controllers (PN7150, PN7120).
