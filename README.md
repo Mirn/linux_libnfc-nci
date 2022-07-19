@@ -14,6 +14,10 @@ How to configure for SubBoard
 11. export LD_LIBRARY_PATH=/usr/local/lib
 12. Check that everything works well by running in tag reader mode "nfcDemoApp poll"
 
+based on AN 12991, available in /doc
+
+steps 7 and 8 are already done and committed to this repository
+
 
 linux_libnfc-nci
 ================
